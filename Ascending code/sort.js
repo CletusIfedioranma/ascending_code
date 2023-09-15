@@ -1,19 +1,21 @@
-function bubbleSort(arr) {
-    const len = arr.length;
-    let swapped;
+function sortArrayAscending(arr) {
+    let len = arr.length;
 
-    do {
-        swapped = false;
-        for (let i = 0; i < len - 1; i++) {
-            if (arr[i] > arr[i + 1]) {
-                const temp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = temp;
-                swapped = true;
+    for (let i = 0; i < len - 1; i++) {
+        for (let j = 0; j < len - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
             }
         }
-    } while (swapped);
+    }
 
-    console.log(arr);
+    return arr;
 }
-bubbleSort([5,2,0,-3,4,5,2,10,40,3,4])
+
+let originalArray = [5, 2, 0, -3, 4, 5, 2, 10, 40, 1, 3, 4];
+let sortedArray = sortArrayAscending(originalArray);
+
+console.log("Original Array:", originalArray);
+console.log("Sorted Array (Ascending Order):", sortedArray);
